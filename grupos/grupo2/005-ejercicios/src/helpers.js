@@ -1,37 +1,21 @@
-var MongoClient = require('mongodb').MongoClient;
 
-function getAll(table) {
-    // Connect to the db
-    MongoClient.connect("mongodb://localhost:27017/diplomatura", function (err, db) {
-        db.collection(table, function (err, collection) {
-            collection.find().toArray(function (err, items) {
-                if (err) throw err;
-                return items;
-            });
-        });
-    });
-}
+const connection = require('./connection');
 
-function getById(table, idObject) {
-    // Connect to the db
-    MongoClient.connect("mongodb://localhost:27017/diplomatura", function (err, db) {
-        db.collection(table, function (err, collection) {
-            collection.find({ id: idObject }).toArray(function (err, items) {
-                if (err) throw err;
-                return items;
-            });
+export const helpers = {
+    getAll: async function (table, query, req, res) {
+        const db = await connection();
+        var collection = db.collection(table);
+        const alumnos = await collection.find(query);
+        alumnos.toArray(function (error, documents) {
+            res.json(documents);
         });
-    });
-}
-
-function insert(table, object) {
-    // Connect to the db
-    MongoClient.connect("mongodb://localhost:27017/diplomatura", function (err, db) {
-        db.collection(table, function (err, collection) {
-            collection.insert(object, function (err, res) {
-                if (err) throw err;
-                console.log(`Objeto insertado en tabla ${table}`);
-            });
+    },
+    delete: async function (table, query, req, res) {
+        const db = await connection();
+        var collection = db.collection(table);
+        collection.deleteOne(query, function (err, obj) {
+            if (err) throw err;
+            res.json({ mensaje: `Objeto eliminado` })
         });
-    });
+    }
 }

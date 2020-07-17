@@ -3,17 +3,17 @@ import { helpers } from '../helpers';
 const router = express.Router();
 
 router.get('/', async function (req, res) {
-  helpers.getAll('alumnos', {}, req, res);
+    helpers.getAll('materias', {}, req, res);
 });
 
 router.get('/:nombre', async function (req, res) {
-  const nombre = req.params.nombre;
-  helpers.getAll('alumnos', { nombre: nombre }, req, res);
+    const nombre = req.params.nombre;
+    helpers.getAll('materias', { nombre: nombre }, req, res);
 });
 
 router.delete('/:id', async function (req, res) {
-  const id = parseInt(req.params.id);
-  helpers.delete('alumnos', { id: id }, req, res);
+    const id = parseInt(req.params.id);
+    helpers.delete('materias', { id: id }, req, res);
 });
 
 export default router;
