@@ -2,6 +2,7 @@ import express from 'express';
 const app = express();
 import postsRoutes from './controllers/posts';
 import albumRoutes from './controllers/albums';
+import userRoutes from './controllers/users';
 import os from 'os';
 import moment from 'moment';
 moment.locale('es');
@@ -10,7 +11,7 @@ const PORT = 8080;
 
 app.use('/posts', postsRoutes);
 app.use('/albums', albumRoutes);
-
+app.use('/users', userRoutes);
 // Implementar el endpoint de stats aca. GET "/"
 app.get('/', function (req, res) {
   const result = {
