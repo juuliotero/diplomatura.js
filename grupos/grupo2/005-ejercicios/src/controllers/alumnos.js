@@ -1,10 +1,11 @@
 import express from 'express';
+import helpers from './helpers';
 
 const router = express.Router();
 
-router.get('/', function (req, res) {
-  // Completar
-  res.json({});
+router.get('/', function async(req, res) {
+  const alumnos = await helpers.get('alumnos');
+  res.json(alumnos);
 });
 
 router.get('/:id', function (req, res) {
