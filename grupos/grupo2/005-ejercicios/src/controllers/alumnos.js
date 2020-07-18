@@ -1,25 +1,30 @@
 import express from 'express';
-
+import { helpers } from '../helpers';
 const router = express.Router();
 
-router.get('/', function (req, res) {
-  // Completar
-  res.json({});
+router.get('/', async function (req, res) {
+  helpers.getAll('alumnos', {}, req, res);
 });
 
-router.get('/:id', function (req, res) {
-  // Completar
-  res.json({});
+router.get('/:nombre', async function (req, res) {
+  const nombre = req.params.nombre;
+  helpers.getAll('alumnos', { nombre: nombre }, req, res);
 });
 
-router.post('/', function (req, res) {
-  // TIP: En req.body viene los datos
-
-  // Completar
-  res.json({});
+router.post('/', async function (req, res) {
+  const alumno = req.body;
+  helpers.insert('alumnos', alumno, req, res);
 });
 
-// Completar el resto de los métodos
-// router....
+router.put('/:id', async function (req, res) {
+  const id = parseInt(req.params.id);
+  const datos = req.body;
+  helpers.update('alumnos', { id: id }, datos, req, res);
+});
+
+router.delete('/:id', async function (req, res) {
+  const id = parseInt(req.params.id);
+  helpers.delete('alumnos', { id: id }, req, res);
+});
 
 export default router;
