@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import alumnosRoutes from './controllers/alumnos';
 import materiasRoutes from './controllers/materias-other';
-const PORT = 8081;
+const PORT = 8080;
 const app = express();
 app.use(bodyParser.json());
 //app.use(express.urlencoded({ extended: truee }))
@@ -14,4 +14,3 @@ app.get('/', function (req, res) {
 
 app.listen(PORT);
 console.log(`Express started on port ${PORT}`);
-
