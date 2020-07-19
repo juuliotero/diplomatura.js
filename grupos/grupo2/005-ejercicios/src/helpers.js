@@ -6,8 +6,9 @@ export const helpers = {
         try {
             const db = await connection();
             var collection = db.collection(table);
-            const alumnos = await collection.find(query);
-            alumnos.toArray(function (error, documents) {
+            console.log(query);
+            const resultado = await collection.find(query);
+            resultado.toArray(function (error, documents) {
                 res.json(documents);
             });
         } catch (err) {
@@ -28,7 +29,7 @@ export const helpers = {
         try {
             const db = await connection();
             var collection = db.collection(table);
-            const resultado = await collection.findOneAndUpdate(query, { $set: data });
+            const resultado = await collection.findOneAndUpdate(query, { $set: data },{returnOriginal: false});
             if (resultado.value) {
                 res.json(resultado.value);
             } else {
