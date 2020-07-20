@@ -24,11 +24,12 @@ export const helpers = {
             res.json({ error: err });
         }
     },
+    /* { returnOriginal: false } para que devulve el doc modificado */
     update: async function (table, query, data, req, res) {
         try {
             const db = await connection();
             var collection = db.collection(table);
-            const resultado = await collection.findOneAndUpdate(query, { $set: data });
+            const resultado = await collection.findOneAndUpdate(query, { $set: data }, { returnOriginal: false });
             if (resultado.value) {
                 res.json(resultado.value);
             } else {
@@ -38,16 +39,14 @@ export const helpers = {
             res.json({ error: err });
         }
     },
+    /*  Boolean(result.deletedCount) para que devuelva un booleando directamente false va a ser en 0 */
+
     delete: async function (table, query, req, res) {
         try {
             const db = await connection();
             var collection = db.collection(table);
             const resultado = await collection.deleteOne(query);
-            if (resultado.deletedCount) {
-                res.json({ ok: true });
-            } else {
-                res.json({ ok: false });
-            }
+            return { ok: Boolean(result.deletedCount) };
         } catch (err) {
             res.json({ error: err });
         }

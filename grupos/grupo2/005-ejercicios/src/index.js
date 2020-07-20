@@ -1,10 +1,11 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import alumnosRoutes from './controllers/alumnos';
-import materiasRoutes from './controllers/materias';
+//import materiasRoutes from './controllers/materias';
+import materiasRoutes from './controllers/materias-other';
 import calificacionesRoutes from './controllers/calificaciones'
 
-const PORT = 8080;
+const PORT = 8081;
 const app = express();
 app.use(bodyParser.json());
 
