@@ -4,7 +4,6 @@ import { helpers } from '../helpers';
 const router = express.Router();
 
 router.get('/', async function (req, res) {
-    console.log("getAll");
     helpers.getAll('materias', {}, req, res);
 });
 
