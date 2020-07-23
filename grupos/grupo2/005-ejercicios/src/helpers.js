@@ -28,7 +28,8 @@ export const helpers = {
         try {
             const db = await connection();
             var collection = db.collection(table);
-            const resultado = await collection.findOneAndUpdate(query, { $set: data });
+            const resultado = await collection.findOneAndUpdate(query, { $set: data }, { returnOriginal: false });
+            //const resultado = await collection.findOneAndUpdate(query, { $set: data });
             if (resultado.value) {
                 res.json(resultado.value);
             } else {
