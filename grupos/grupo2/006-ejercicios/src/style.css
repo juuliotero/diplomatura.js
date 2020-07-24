@@ -1,3 +1,13 @@
 body {
   font-family: sans-serif;
 }
+.after{
+  background-color: green;
+  color: white;
+}
+
+.btnEliminar {
+  background-color: red;
+  color: white;
+
+}
