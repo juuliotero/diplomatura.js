@@ -1,3 +1,48 @@
 body {
   font-family: sans-serif;
+  text-align: center;
+}
+#tabla {
+  width: 450px;
+  display: inline-table;
+  text-align: center;
+}
+
+ul li {
+  text-align: left;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  align-items: baseline;
+  box-sizing: border-box;
+  position: relative;
+  border: none;
+  text-align: center;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+ul li .btnEliminar {
+  float: right;
+  color: white;
+  background-color: red;
+}
+.after {
+  background-color: #3fb569 !important;
+  color: white !important;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
