@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Juego de Globitos</title>
+    <meta charset="UTF-8" />
+    <link href="src/balloon-game/balloon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="title">
+        Juego de Globitos
+    </div>
+    <div id="tablero">
+        <div id="mensaje" style="display: none">
+            ¡GANASTE EL JUEGO!
+        </div>
+    </div>
+
+    <script src="src/balloon-game/balloon.js"></script>
+    <script>
+        function checkJuego() {
+            const globos = document.getElementsByClassName("globo");
+            if (globos.length <= 0) {
+                const mensaje = document.getElementById("mensaje");
+                mensaje.style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>

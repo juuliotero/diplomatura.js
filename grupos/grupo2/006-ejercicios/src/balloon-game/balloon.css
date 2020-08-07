@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;1,300;1,800&display=swap');
+
+body{
+    background: rgb(140, 182, 198);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.title{
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+    font-size: 36px;
+}
+
+#tablero{
+    padding-left:8%;
+    padding-right:8%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#mensaje{
+    background: white;
+    color: #686851;
+    padding: 2%;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.globo{
+    width: 118px;
+    position: absolute;
+}
+
+.globo .cuerpo{
+    height: 136px;
+    background: #2FDE7B;
+    border-radius: 50%;
+    bottom: auto;
+    background: blue;
+    margin-bottom: -4px;
+}
+
+.globo .nudo{
+     width: 0;
+    margin-left: 49px;
+    height: 0px;
+    content: "";
+    border-left: 9px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 10px solid black;
+    border-radius: 4px;
+}
+
+.globo .soga{
+    width: 2px;
+    margin-left: 56px;
+    height: 50px;
+    content: "";
+    border-left: 2px solid white;
+}
