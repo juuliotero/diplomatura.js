@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faEye } from '@fortawesome/free-solid-svg-icons'
 
 class VistaCalificaciones extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
             materiaSeleccionada: -1,
@@ -34,7 +34,7 @@ class VistaCalificaciones extends React.Component {
             return (
                 <div>
                     <DetalleCalificacion calificacion={calificacion} />
-                    <button className="btn btn-danger" onClick={this.setVistaActual.bind(this, 'listado', null, null)}>Volver</button>
+                    <button className="btn btn-danger" onClick={() => this.setVistaActual('listado', null, null)}>Volver</button>
                 </div>
             );
         } else {
@@ -57,8 +57,8 @@ class VistaCalificaciones extends React.Component {
                                     </td>
                                     <td class="text-right">
                                         <div className="btn-group">
-                                            <button className="btn btn-sm btn-info" onClick={this.setVistaActual.bind(this, 'detalle', calificacion.alumno, calificacion.materia)}><FontAwesomeIcon icon={faEye} /></button>
-                                            <button className="btn btn-sm btn-danger" onClick={this.eliminar.bind(this, calificacion.alumno, calificacion.materia)}><FontAwesomeIcon icon={faTrash} /></button>
+                                            <button className="btn btn-sm btn-info" onClick={() => this.setVistaActual('detalle', calificacion.alumno, calificacion.materia)}><FontAwesomeIcon icon={faEye} /></button>
+                                            <button className="btn btn-sm btn-danger" onClick={() => this.eliminar(calificacion.alumno, calificacion.materia)}><FontAwesomeIcon icon={faTrash} /></button>
                                         </div>
                                     </td>
                                 </tr>

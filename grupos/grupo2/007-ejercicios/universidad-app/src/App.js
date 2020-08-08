@@ -7,7 +7,7 @@ import VistaMaterias from './componentes/Materias/vistaMaterias';
 import VistaProfesores from './componentes/Profesores/VistaProfesores';
 
 class App extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       vistaActual: 'alumnos',
@@ -25,7 +25,7 @@ class App extends React.Component {
    * @param {*} idSeleccionado
    */
 
-  setVistaActual(vista, idSeleccionado) {
+  setVistaActual = (vista, idSeleccionado) => {
     const newState = { vistaActual: vista };
     if (idSeleccionado) {
       newState.idDetalleSeleccionado = idSeleccionado;
@@ -52,19 +52,19 @@ class App extends React.Component {
     );
   }
 
-  handleDelete(newState) {
+  handleDelete = (newState) => {
     this.setState(newState);
   }
 
-  handleAddAlumno(alumno) {
+  handleAddAlumno = (alumno) => {
     this.setState({ alumnos: [...this.state.alumnos, alumno] });
   }
 
-  handleAddMateria(materia) {
+  handleAddMateria = (materia) => {
     this.setState({ materias: [...this.state.materias, materia] });
   }
 
-  handleAddProfesor(profesor) {
+  handleAddProfesor = (profesor) => {
     this.setState({ profesores: [...this.state.profesores, profesor] });
   }
 
@@ -72,13 +72,13 @@ class App extends React.Component {
   getVista() {
     switch (this.state.vistaActual) {
       case 'alumnos':
-        return <VistaAlumnos alumnos={this.state.alumnos} handleDelete={this.handleDelete.bind(this)} handleAdd={this.handleAddAlumno.bind(this)} />;
+        return <VistaAlumnos alumnos={this.state.alumnos} handleDelete={this.handleDelete} handleAdd={this.handleAddAlumno} />;
       case 'profesores':
-        return <VistaProfesores profesores={this.state.profesores} handleDelete={this.handleDelete.bind(this)} handleAdd={this.handleAddProfesor.bind(this)} />;
+        return <VistaProfesores profesores={this.state.profesores} handleDelete={this.handleDelete} handleAdd={this.handleAddProfesor} />;
       case 'materias':
-        return <VistaMaterias materias={this.state.materias} handleDelete={this.handleDelete.bind(this)} handleAdd={this.handleAddMateria.bind(this)} />;
+        return <VistaMaterias materias={this.state.materias} handleDelete={this.handleDelete} handleAdd={this.handleAddMateria} />;
       case 'calificaciones':
-        return <VistaCalificaciones calificaciones={this.state.calificaciones} alumnos={this.state.alumnos} materias={this.state.materias} handleDelete={this.handleDelete.bind(this)} />;
+        return <VistaCalificaciones calificaciones={this.state.calificaciones} alumnos={this.state.alumnos} materias={this.state.materias} handleDelete={this.handleDelete} />;
       default:
         break;
     }

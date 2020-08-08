@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faEye } from '@fortawesome/free-solid-svg-icons'
 
 class VistaMaterias extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
             vistaActual: 'materias',
@@ -29,14 +29,14 @@ class VistaMaterias extends React.Component {
             return (
                 <div>
                     <DetalleMateria materia={materia} />
-                    <button className="btn btn-danger" onClick={this.setVistaActual.bind(this, 'listado', null)}>Volver</button>
+                    <button className="btn btn-danger" onClick={() => this.setVistaActual('listado', null)}>Volver</button>
                 </div>
             );
         } else {
             return (
                 <div className="row">
                     <div className="col-12">
-                        <FormAddMateria lastId={this.props.materias[this.props.materias.length - 1].id} handleAdd={this.props.handleAdd.bind(this)} />
+                        <FormAddMateria lastId={this.props.materias[this.props.materias.length - 1].id} handleAdd={this.props.handleAdd} />
                         <table className="mt-4">
                             <tbody>
                                 {this.props.materias.map(materia => {
@@ -47,8 +47,8 @@ class VistaMaterias extends React.Component {
                                             </td>
                                             <td class="text-right">
                                                 <div className="btn-group">
-                                                    <button className="btn btn-sm btn-info" onClick={this.setVistaActual.bind(this, 'detalle', materia.id)}><FontAwesomeIcon icon={faEye} /></button>
-                                                    <button className="btn btn-sm btn-danger" onClick={this.eliminar.bind(this, materia.id)}><FontAwesomeIcon icon={faTrash} /></button>
+                                                    <button className="btn btn-sm btn-info" onClick={() => this.setVistaActual('detalle', materia.id)}><FontAwesomeIcon icon={faEye} /></button>
+                                                    <button className="btn btn-sm btn-danger" onClick={() => this.eliminar(materia.id)}><FontAwesomeIcon icon={faTrash} /></button>
                                                 </div>
                                             </td>
                                         </tr>

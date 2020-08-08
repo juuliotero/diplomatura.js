@@ -1,21 +1,17 @@
 import React from 'react';
 
-class DetalleMateria extends React.Component {
+export default function DetalleMateria(props) {
 
-    render() {
-        return (
-            <div className="mt-4">
-                <p>
-                    <b>
-                        ID: {this.props.materia.id}
-                    </b>
-                    <br></br>
-                    Nombre: {this.props.materia.nombre}
-                </p>
-                <hr></hr>
-            </div>
-        );
-    }
+    return (
+        <div className="mt-4">
+            <p>
+                <b>
+                    ID: {props.materia.id}
+                </b>
+                <br></br>
+                    Nombre: {props.materia.nombre}
+            </p>
+            <hr></hr>
+        </div>
+    );
 }
-
-export default DetalleMateria;

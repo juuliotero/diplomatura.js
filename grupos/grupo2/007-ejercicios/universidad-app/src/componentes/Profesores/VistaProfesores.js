@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faEye } from '@fortawesome/free-solid-svg-icons'
 
 class VistaProfesores extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
             vistaActual: 'profesores',
@@ -30,13 +30,13 @@ class VistaProfesores extends React.Component {
             return (
                 <div>
                     <DetalleProfesor profesor={profesor} />
-                    <button className="btn btn-danger" onClick={this.setVistaActual.bind(this, 'listado', null)}>Volver</button>
+                    <button className="btn btn-danger" onClick={() => this.setVistaActual('listado', null)}>Volver</button>
                 </div>
             );
         } else {
             return (
                 <div>
-                    <FormAddProfesor lastId={this.props.profesores[this.props.profesores.length - 1].id} handleAdd={this.props.handleAdd.bind(this)} />
+                    <FormAddProfesor lastId={this.props.profesores[this.props.profesores.length - 1].id} handleAdd={this.props.handleAdd} />
                     <table className="mt-4">
                         <tbody>
                             {this.props.profesores.map(profesor => {
@@ -47,8 +47,8 @@ class VistaProfesores extends React.Component {
                                         </td>
                                         <td class="text-right">
                                             <div className="btn-group">
-                                                <button className="btn btn-sm btn-info" onClick={this.setVistaActual.bind(this, 'detalle', profesor.id)}><FontAwesomeIcon icon={faEye} /></button>
-                                                <button className="btn btn-sm btn-danger" onClick={this.eliminar.bind(this, profesor.id)}><FontAwesomeIcon icon={faTrash} /></button>
+                                                <button className="btn btn-sm btn-info" onClick={() => this.setVistaActual('detalle', profesor.id)}><FontAwesomeIcon icon={faEye} /></button>
+                                                <button className="btn btn-sm btn-danger" onClick={() => this.eliminar(profesor.id)}><FontAwesomeIcon icon={faTrash} /></button>
                                             </div>
                                         </td>
                                     </tr>
